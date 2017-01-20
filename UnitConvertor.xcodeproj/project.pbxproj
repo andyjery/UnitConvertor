@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0E27A51DEC31BE00E7AE7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C0E27A41DEC31BE00E7AE7D /* Assets.xcassets */; };
+		2C337F2C1E09258500B72938 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C337F2B1E09258500B72938 /* Calculation.swift */; };
+		2C337F2E1E0CCBEF00B72938 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C337F2D1E0CCBEF00B72938 /* TableViewCell.swift */; };
+		2C337F301E0CCF2C00B72938 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C337F2F1E0CCF2C00B72938 /* Unit.swift */; };
 		2CD902C61DE43BCF0045B09F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD902C51DE43BCF0045B09F /* AppDelegate.swift */; };
 		2CD902C81DE43BCF0045B09F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD902C71DE43BCF0045B09F /* ViewController.swift */; };
 		2CD902CB1DE43BCF0045B09F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD902C91DE43BCF0045B09F /* Main.storyboard */; };
-		2CD902CD1DE43BCF0045B09F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CD902CC1DE43BCF0045B09F /* Assets.xcassets */; };
 		2CD902D01DE43BCF0045B09F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD902CE1DE43BCF0045B09F /* LaunchScreen.storyboard */; };
+		2CD902D81DE57D050045B09F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD902D71DE57D050045B09F /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C0E27A41DEC31BE00E7AE7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C337F2B1E09258500B72938 /* Calculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
+		2C337F2D1E0CCBEF00B72938 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2C337F2F1E0CCF2C00B72938 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		2CD902C21DE43BCF0045B09F /* UnitConvertor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConvertor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD902C51DE43BCF0045B09F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CD902C71DE43BCF0045B09F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2CD902CA1DE43BCF0045B09F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2CD902CC1DE43BCF0045B09F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CD902CF1DE43BCF0045B09F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CD902D11DE43BCF0045B09F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CD902D71DE57D050045B09F /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +63,15 @@
 			isa = PBXGroup;
 			children = (
 				2CD902C51DE43BCF0045B09F /* AppDelegate.swift */,
+				2C0E27A41DEC31BE00E7AE7D /* Assets.xcassets */,
 				2CD902C71DE43BCF0045B09F /* ViewController.swift */,
+				2CD902D71DE57D050045B09F /* CollectionViewCell.swift */,
+				2C337F2D1E0CCBEF00B72938 /* TableViewCell.swift */,
 				2CD902C91DE43BCF0045B09F /* Main.storyboard */,
-				2CD902CC1DE43BCF0045B09F /* Assets.xcassets */,
 				2CD902CE1DE43BCF0045B09F /* LaunchScreen.storyboard */,
 				2CD902D11DE43BCF0045B09F /* Info.plist */,
+				2C337F2B1E09258500B72938 /* Calculation.swift */,
+				2C337F2F1E0CCF2C00B72938 /* Unit.swift */,
 			);
 			path = UnitConvertor;
 			sourceTree = "<group>";
@@ -91,7 +103,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Jerry Chen";
 				TargetAttributes = {
 					2CD902C11DE43BCF0045B09F = {
@@ -125,7 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CD902D01DE43BCF0045B09F /* LaunchScreen.storyboard in Resources */,
-				2CD902CD1DE43BCF0045B09F /* Assets.xcassets in Resources */,
+				2C0E27A51DEC31BE00E7AE7D /* Assets.xcassets in Resources */,
 				2CD902CB1DE43BCF0045B09F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C337F2E1E0CCBEF00B72938 /* TableViewCell.swift in Sources */,
 				2CD902C81DE43BCF0045B09F /* ViewController.swift in Sources */,
 				2CD902C61DE43BCF0045B09F /* AppDelegate.swift in Sources */,
+				2C337F301E0CCF2C00B72938 /* Unit.swift in Sources */,
+				2CD902D81DE57D050045B09F /* CollectionViewCell.swift in Sources */,
+				2C337F2C1E09258500B72938 /* Calculation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +198,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -232,6 +249,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -302,6 +320,7 @@
 				2CD902D61DE43BCF0045B09F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
