@@ -15,22 +15,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var leftTableView: UITableView!
     @IBOutlet weak var rightTableView: UITableView!
-    @IBOutlet weak var maskView: UIView!
     
     @IBOutlet weak var calculationProcessLabel: UILabel!
-    
-    var lengthArray:[Unit] =
-    [
-        Unit(name: "millimeter", value: ""),
-        Unit(name: "centimeter", value: ""),
-        Unit(name: "decimeter", value: ""),
-        Unit(name: "meter", value: ""),
-        Unit(name: "kilometer", value: "")
-    ]
     
     var selectedIndexPath:IndexPath!
     var displayCalculation:String!
     var displayCalculationArray:[String] = []
+    var getAnswer:String!
     
     var viewHightFlag:Bool = false
     
@@ -41,6 +32,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var allowMultiZero = false
     var isSingleZero = false
     var numberSigne = true
+    
+    let tempObjectArray = UnitRecord().distance(inputValue: "0")
     
     lazy var imageArray:[String] =
     {
@@ -75,7 +68,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         rightTableView.dataSource = self
         rightTableView.delegate = self
         
-        maskView.backgroundColor = UIColor(displayP3Red: 71, green: 71, blue: 71, alpha: 0.5)
         self.view.addSubview(calculationCollectionView)
     }
 
@@ -134,16 +126,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //MARK: TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var cellNumber:Int!
-        
-        if tableView == leftTableView
-        {
-            cellNumber = lengthArray.count
-        }else if tableView == rightTableView{
-            cellNumber = 20
-        }
-        
-        return cellNumber
+        return tempObjectArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -151,22 +134,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if tableView == leftTableView
         {
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "LeftCell", for: indexPath) as! TableViewCell
-            cell1.unitNameLabel.text = lengthArray[indexPath.row].name
+            let cellLeft = tableView.dequeueReusableCell(withIdentifier: "LeftCell", for: indexPath) as! LeftTableViewCell
+            cellLeft.unitNameLabel.text = tempObjectArray[indexPath.row].name
+            cellLeft.unitValueLabel.text = self.getAnswer ?? "0"
 
-            cell = cell1
+            cell = cellLeft
         }else if tableView == rightTableView{
-            cell = tableView.dequeueReusableCell(withIdentifier: "RightCell", for: indexPath)
-            cell?.textLabel?.text = String(indexPath.row)
+            let cellRight = tableView.dequeueReusableCell(withIdentifier: "RightCell", for: indexPath) as! RightTableViewCell
+            cellRight.unitNameLabel.text = tempObjectArray[indexPath.row].name
+            cellRight.unitValueLabel.text = self.getAnswer ?? "0"
+            cell = cellRight
         }
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
-        let cell = leftTableView.cellForRow(at: indexPath) as! TableViewCell
-        cell.unitValueLabel.text = displayCalculation == nil || displayCalculation.isEmpty ? "0" : displayCalculation
-        self.selectedIndexPath = indexPath
+//        let cell = leftTableView.cellForRow(at: indexPath) as! TableViewCell
+//        
+//        cell.unitValueLabel.text = displayCalculation == nil || displayCalculation.isEmpty ? "0" : Calculator(infix: displayCalculationArray).getAnswer()
+//        self.selectedIndexPath = indexPath
         
     }
     
@@ -322,11 +309,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             print(displayCalculationArray)
             print(Calculator(infix: displayCalculationArray).toPostfix())
+            getAnswer = Calculator(infix: displayCalculationArray).getAnswer()
+            print(self.getAnswer)
             calculationProcessLabel.text = displayCalculation
             
-            // Get remembered indexpath we just selected on left Tableview , and put value on it immediately
-            let cell = leftTableView.cellForRow(at: selectedIndexPath) as! TableViewCell
-            cell.unitValueLabel.text = displayCalculation
             leftTableView.reloadData()
             rightTableView.reloadData()
         }

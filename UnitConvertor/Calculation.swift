@@ -17,8 +17,6 @@ class Calculator
     
     init(infix:[String]) {
         self.infix = infix
-        
-        print(self.postfix)
     }
     
     func toPostfix() -> [String]
@@ -59,4 +57,50 @@ class Calculator
         return returnValue
     }
     
+    private func simpleCal(op:String, num1: String, num2:String) -> String
+    {
+        var earlyAnswer:Double = 0
+        switch op {
+            case "-":
+                earlyAnswer = Double(num1)! - Double(num2)!
+            case "+":
+                earlyAnswer = Double(num1)! + Double(num2)!
+            case "÷":
+                earlyAnswer = Double(num1)! / Double(num2)!
+            case "x":
+                earlyAnswer = Double(num1)! * Double(num2)!
+            default:break
+        }
+        return String(earlyAnswer)
+    }
+    
+    func getAnswer() -> String
+    {
+        var numbers:[String] = []
+        var returnAnswer:String!
+        
+        var equationItems = self.toPostfix()
+        while !equationItems.isEmpty
+        {
+            switch equationItems[0] {
+                case "÷","x","-","+":
+                    if numbers.count >= 2
+                    {
+                        numbers[numbers.count - 2] = simpleCal(op: equationItems[0], num1: numbers[numbers.count - 2], num2: numbers[numbers.count - 1])
+                        numbers.removeLast()
+                        equationItems.removeFirst()
+                    }else if numbers.count < 2{
+                        equationItems.removeAll()
+                    }
+                case "(":
+                    equationItems.removeAll()
+                default:
+                    numbers.append(equationItems[0])
+                    equationItems.removeFirst()
+                }
+        }
+        
+        numbers.isEmpty ? (returnAnswer = "0") : (returnAnswer = numbers[0])
+        return returnAnswer
+    }
 }

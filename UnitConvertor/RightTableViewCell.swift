@@ -1,15 +1,15 @@
 //
-//  TableViewCell.swift
+//  RightTableViewCell.swift
 //  UnitConvertor
 //
-//  Created by Jerry Chen on 2016/12/23.
-//  Copyright © 2016年 Jerry Chen. All rights reserved.
+//  Created by Jerry Chen on 2017/2/2.
+//  Copyright © 2017年 Jerry Chen. All rights reserved.
 //
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
-
+class RightTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var unitValueLabel: UILabel!
     @IBOutlet weak var unitNameLabel: UILabel!
     
