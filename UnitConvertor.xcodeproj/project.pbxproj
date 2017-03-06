@@ -10,9 +10,29 @@
 		2C0E27A51DEC31BE00E7AE7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C0E27A41DEC31BE00E7AE7D /* Assets.xcassets */; };
 		2C18387B1E4311C700EFC2F6 /* RightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C18387A1E4311C700EFC2F6 /* RightTableViewCell.swift */; };
 		2C1AE3BD1E482C4600403E3F /* UnitStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1AE3BC1E482C4600403E3F /* UnitStruct.swift */; };
+		2C1AE3BF1E5A9ED100403E3F /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1AE3BE1E5A9ED100403E3F /* Distance.swift */; };
+		2C1AE3C11E5D434E00403E3F /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1AE3C01E5D434E00403E3F /* Area.swift */; };
+		2C1AE3C31E5D6DFA00403E3F /* UnitObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1AE3C21E5D6DFA00403E3F /* UnitObjects.swift */; };
+		2C1AE3C51E5FD93D00403E3F /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1AE3C41E5FD93D00403E3F /* Volume.swift */; };
+		2C1AE3C71E6010ED00403E3F /* Mass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1AE3C61E6010ED00403E3F /* Mass.swift */; };
+		2C1AE3C91E60172D00403E3F /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1AE3C81E60172D00403E3F /* Angle.swift */; };
+		2C1AE3CB1E60199100403E3F /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1AE3CA1E60199100403E3F /* Acceleration.swift */; };
 		2C337F2C1E09258500B72938 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C337F2B1E09258500B72938 /* Calculation.swift */; };
 		2C337F2E1E0CCBEF00B72938 /* LeftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C337F2D1E0CCBEF00B72938 /* LeftTableViewCell.swift */; };
 		2C337F301E0CCF2C00B72938 /* UnitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C337F2F1E0CCF2C00B72938 /* UnitRecord.swift */; };
+		2CD48D1C1E6131940037FA19 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D1B1E6131940037FA19 /* Concentration.swift */; };
+		2CD48D1E1E616D3B0037FA19 /* Dispersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D1D1E616D3B0037FA19 /* Dispersion.swift */; };
+		2CD48D201E6194EF0037FA19 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D1F1E6194EF0037FA19 /* Duration.swift */; };
+		2CD48D221E6198C70037FA19 /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D211E6198C70037FA19 /* Charge.swift */; };
+		2CD48D241E61A16D0037FA19 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D231E61A16D0037FA19 /* Current.swift */; };
+		2CD48D261E61A45E0037FA19 /* Voltage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D251E61A45E0037FA19 /* Voltage.swift */; };
+		2CD48D281E61A7E00037FA19 /* Resistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D271E61A7E00037FA19 /* Resistance.swift */; };
+		2CD48D2A1E61B6480037FA19 /* Energy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D291E61B6480037FA19 /* Energy.swift */; };
+		2CD48D2C1E61B93C0037FA19 /* Frequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D2B1E61B93C0037FA19 /* Frequency.swift */; };
+		2CD48D321E61C15C0037FA19 /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D311E61C15C0037FA19 /* Power.swift */; };
+		2CD48D341E61CA4A0037FA19 /* Pressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D331E61CA4A0037FA19 /* Pressure.swift */; };
+		2CD48D361E61CD1A0037FA19 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D351E61CD1A0037FA19 /* Speed.swift */; };
+		2CD48D381E61CF490037FA19 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD48D371E61CF490037FA19 /* Temperature.swift */; };
 		2CD902C61DE43BCF0045B09F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD902C51DE43BCF0045B09F /* AppDelegate.swift */; };
 		2CD902C81DE43BCF0045B09F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD902C71DE43BCF0045B09F /* ViewController.swift */; };
 		2CD902CB1DE43BCF0045B09F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD902C91DE43BCF0045B09F /* Main.storyboard */; };
@@ -24,9 +44,29 @@
 		2C0E27A41DEC31BE00E7AE7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C18387A1E4311C700EFC2F6 /* RightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightTableViewCell.swift; sourceTree = "<group>"; };
 		2C1AE3BC1E482C4600403E3F /* UnitStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitStruct.swift; sourceTree = "<group>"; };
+		2C1AE3BE1E5A9ED100403E3F /* Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
+		2C1AE3C01E5D434E00403E3F /* Area.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		2C1AE3C21E5D6DFA00403E3F /* UnitObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitObjects.swift; sourceTree = "<group>"; };
+		2C1AE3C41E5FD93D00403E3F /* Volume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
+		2C1AE3C61E6010ED00403E3F /* Mass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mass.swift; path = ../Mass.swift; sourceTree = "<group>"; };
+		2C1AE3C81E60172D00403E3F /* Angle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
+		2C1AE3CA1E60199100403E3F /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
 		2C337F2B1E09258500B72938 /* Calculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		2C337F2D1E0CCBEF00B72938 /* LeftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftTableViewCell.swift; sourceTree = "<group>"; };
 		2C337F2F1E0CCF2C00B72938 /* UnitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitRecord.swift; sourceTree = "<group>"; };
+		2CD48D1B1E6131940037FA19 /* Concentration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
+		2CD48D1D1E616D3B0037FA19 /* Dispersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispersion.swift; sourceTree = "<group>"; };
+		2CD48D1F1E6194EF0037FA19 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
+		2CD48D211E6198C70037FA19 /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
+		2CD48D231E61A16D0037FA19 /* Current.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
+		2CD48D251E61A45E0037FA19 /* Voltage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Voltage.swift; sourceTree = "<group>"; };
+		2CD48D271E61A7E00037FA19 /* Resistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resistance.swift; sourceTree = "<group>"; };
+		2CD48D291E61B6480037FA19 /* Energy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Energy.swift; sourceTree = "<group>"; };
+		2CD48D2B1E61B93C0037FA19 /* Frequency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frequency.swift; sourceTree = "<group>"; };
+		2CD48D311E61C15C0037FA19 /* Power.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Power.swift; sourceTree = "<group>"; };
+		2CD48D331E61CA4A0037FA19 /* Pressure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pressure.swift; sourceTree = "<group>"; };
+		2CD48D351E61CD1A0037FA19 /* Speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
+		2CD48D371E61CF490037FA19 /* Temperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		2CD902C21DE43BCF0045B09F /* UnitConvertor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConvertor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD902C51DE43BCF0045B09F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CD902C71DE43BCF0045B09F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +87,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CD48D1A1E612E3E0037FA19 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				2C337F2F1E0CCF2C00B72938 /* UnitRecord.swift */,
+				2C1AE3BE1E5A9ED100403E3F /* Distance.swift */,
+				2C1AE3C01E5D434E00403E3F /* Area.swift */,
+				2C1AE3C41E5FD93D00403E3F /* Volume.swift */,
+				2C1AE3C61E6010ED00403E3F /* Mass.swift */,
+				2C1AE3C81E60172D00403E3F /* Angle.swift */,
+				2C1AE3CA1E60199100403E3F /* Acceleration.swift */,
+				2CD48D1B1E6131940037FA19 /* Concentration.swift */,
+				2CD48D1D1E616D3B0037FA19 /* Dispersion.swift */,
+				2CD48D1F1E6194EF0037FA19 /* Duration.swift */,
+				2CD48D211E6198C70037FA19 /* Charge.swift */,
+				2CD48D231E61A16D0037FA19 /* Current.swift */,
+				2CD48D251E61A45E0037FA19 /* Voltage.swift */,
+				2CD48D271E61A7E00037FA19 /* Resistance.swift */,
+				2CD48D291E61B6480037FA19 /* Energy.swift */,
+				2CD48D2B1E61B93C0037FA19 /* Frequency.swift */,
+				2CD48D311E61C15C0037FA19 /* Power.swift */,
+				2CD48D331E61CA4A0037FA19 /* Pressure.swift */,
+				2CD48D351E61CD1A0037FA19 /* Speed.swift */,
+				2CD48D371E61CF490037FA19 /* Temperature.swift */,
+			);
+			name = Elements;
+			sourceTree = "<group>";
+		};
 		2CD902B91DE43BCF0045B09F = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +144,8 @@
 				2CD902D11DE43BCF0045B09F /* Info.plist */,
 				2C337F2B1E09258500B72938 /* Calculation.swift */,
 				2C1AE3BC1E482C4600403E3F /* UnitStruct.swift */,
-				2C337F2F1E0CCF2C00B72938 /* UnitRecord.swift */,
+				2C1AE3C21E5D6DFA00403E3F /* UnitObjects.swift */,
+				2CD48D1A1E612E3E0037FA19 /* Elements */,
 			);
 			path = UnitConvertor;
 			sourceTree = "<group>";
@@ -155,14 +223,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C1AE3C11E5D434E00403E3F /* Area.swift in Sources */,
+				2C1AE3BF1E5A9ED100403E3F /* Distance.swift in Sources */,
+				2CD48D341E61CA4A0037FA19 /* Pressure.swift in Sources */,
+				2CD48D361E61CD1A0037FA19 /* Speed.swift in Sources */,
 				2C1AE3BD1E482C4600403E3F /* UnitStruct.swift in Sources */,
+				2C1AE3C51E5FD93D00403E3F /* Volume.swift in Sources */,
+				2C1AE3CB1E60199100403E3F /* Acceleration.swift in Sources */,
+				2CD48D1C1E6131940037FA19 /* Concentration.swift in Sources */,
+				2CD48D221E6198C70037FA19 /* Charge.swift in Sources */,
 				2C337F2E1E0CCBEF00B72938 /* LeftTableViewCell.swift in Sources */,
+				2C1AE3C71E6010ED00403E3F /* Mass.swift in Sources */,
 				2C18387B1E4311C700EFC2F6 /* RightTableViewCell.swift in Sources */,
 				2CD902C81DE43BCF0045B09F /* ViewController.swift in Sources */,
+				2CD48D241E61A16D0037FA19 /* Current.swift in Sources */,
+				2CD48D281E61A7E00037FA19 /* Resistance.swift in Sources */,
 				2CD902C61DE43BCF0045B09F /* AppDelegate.swift in Sources */,
+				2C1AE3C91E60172D00403E3F /* Angle.swift in Sources */,
+				2CD48D2A1E61B6480037FA19 /* Energy.swift in Sources */,
 				2C337F301E0CCF2C00B72938 /* UnitRecord.swift in Sources */,
 				2CD902D81DE57D050045B09F /* CollectionViewCell.swift in Sources */,
+				2CD48D1E1E616D3B0037FA19 /* Dispersion.swift in Sources */,
+				2CD48D201E6194EF0037FA19 /* Duration.swift in Sources */,
+				2CD48D2C1E61B93C0037FA19 /* Frequency.swift in Sources */,
 				2C337F2C1E09258500B72938 /* Calculation.swift in Sources */,
+				2CD48D321E61C15C0037FA19 /* Power.swift in Sources */,
+				2CD48D261E61A45E0037FA19 /* Voltage.swift in Sources */,
+				2CD48D381E61CF490037FA19 /* Temperature.swift in Sources */,
+				2C1AE3C31E5D6DFA00403E3F /* UnitObjects.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

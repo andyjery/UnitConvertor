@@ -10,14 +10,15 @@ import Foundation
 
  class UnitStruct
 {
-    var name = ""
-    var value = ""
-    var ratio:Double
+    var fullName = ""
+    var symbolName = ""
+    var inputValue:Double
+    var outputValue:String
     
-    init(name:String, value:String, ratio:Double) {
-        self.name = name
-        self.value = value
-        self.ratio = ratio
-        
+    init(fullName:String, symbolName:String, inputValue:Double, outputValue:String) {
+        self.fullName = fullName
+        self.symbolName = symbolName
+        self.inputValue = inputValue
+        self.outputValue = outputValue
     }
 }

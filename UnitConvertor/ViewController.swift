@@ -18,10 +18,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var calculationProcessLabel: UILabel!
     
-    var selectedIndexPath:IndexPath!
     var displayCalculation:String!
     var displayCalculationArray:[String] = []
     var getAnswer:String!
+    var selectedTableIndicator:String = "left"
     
     var viewHightFlag:Bool = false
     
@@ -33,12 +33,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var isSingleZero = false
     var numberSigne = true
     
-    let tempObjectArray = UnitRecord().distance(inputValue: "0")
+    var tempUnitStructArray:[UnitStruct]!
+    var selectedCategory:String = "distance"
+    var selectedTableViewIndex:IndexPath!
     
+    var unitObjects = UnitObjects().unitObjects
     lazy var imageArray:[String] =
     {
         var array:[String] = []
-        for i in 1...20
+        for i in 1...19
         {
             array.append("\(i)-2")
         }
@@ -49,12 +52,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        calculationCollectionView.backgroundColor = UIColor.black
-       
+        calculationCollectionView.backgroundColor = UIColor.lightGray
         calculationCollectionView.delegate = self
         calculationCollectionView.dataSource = self
-        
-        selectedIndexPath = IndexPath(row: 0, section: 0)
         
         leftTableView.estimatedRowHeight = 44
         leftTableView.contentInset = UIEdgeInsets(top: (leftTableView.frame.height/2 - leftTableView.estimatedRowHeight/2), left: 0, bottom: (leftTableView.frame.height/2 - leftTableView.estimatedRowHeight/2), right: 0)
@@ -68,6 +68,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         rightTableView.dataSource = self
         rightTableView.delegate = self
         
+        tempUnitStructArray = UnitRecord(inputValue: "0", selectedIndex: 0).distance()
+        
         self.view.addSubview(calculationCollectionView)
     }
 
@@ -79,7 +81,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.imageArray.count
+        return self.unitObjects.count
 
     }
     
@@ -87,14 +89,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath ) as! CollectionViewCell
         cell.cellImageView.image = UIImage(named: imageArray[indexPath.row])
+        cell.cellLabelView.adjustsFontSizeToFitWidth = true
+        cell.cellLabelView.text = unitObjects[indexPath.row].unitObjectName
         
         cell.cellImageView.layer.borderColor = UIColor.white.cgColor;
         cell.cellImageView.layer.borderWidth = 3;
         cell.cellImageView.layer.cornerRadius = 3;
         cell.cellImageView.clipsToBounds = true;
-        cell.backgroundColor = UIColor.black
+        cell.backgroundColor = UIColor.lightGray
 
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(unitObjects[indexPath.row].unitObjectName)
+        selectedCategory = unitObjects[indexPath.row].unitObjectName
+        self.selectedTableViewIndex = IndexPath(row: 0, section: 0)
+    
+        selectUnitStructArray(selectedCategory: selectedCategory)
+        rightTableView.scrollToRow(at: selectedTableViewIndex, at: UITableViewScrollPosition.middle, animated: true)
+        leftTableView.scrollToRow(at: selectedTableViewIndex, at: UITableViewScrollPosition.middle, animated: true)
     }
     
     @IBAction func testButton(_ sender: UIButton) {
@@ -104,8 +118,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             self.view.layoutIfNeeded()
             UIView.animate(withDuration: 1) {
-                self.calculationCollectionViewHeightConstraint.constant = 50
-
+                self.calculationCollectionViewHeightConstraint.constant = 80
                 self.calculationCollectionView.setNeedsUpdateConstraints()
                 self.calculationCollectionView.updateConstraintsIfNeeded()
                 self.view.layoutIfNeeded()
@@ -114,7 +127,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }else{
             self.view.layoutIfNeeded()
             UIView.animate(withDuration: 1, animations: {
-                self.calculationCollectionViewHeightConstraint.constant = 120
+                self.calculationCollectionViewHeightConstraint.constant = 180
                 self.calculationCollectionView.setNeedsUpdateConstraints()
                 self.calculationCollectionView.updateConstraintsIfNeeded()
                 self.view.layoutIfNeeded()
@@ -126,35 +139,61 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //MARK: TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tempObjectArray.count
+        return tempUnitStructArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:UITableViewCell?
         
-        if tableView == leftTableView
-        {
-            let cellLeft = tableView.dequeueReusableCell(withIdentifier: "LeftCell", for: indexPath) as! LeftTableViewCell
-            cellLeft.unitNameLabel.text = tempObjectArray[indexPath.row].name
-            cellLeft.unitValueLabel.text = self.getAnswer ?? "0"
+        switch selectedTableIndicator {
+        case "left":
+            if tableView == leftTableView
+            {
+                let cellLeft = tableView.dequeueReusableCell(withIdentifier: "LeftCell", for: indexPath) as! LeftTableViewCell
+                cellLeft.unitNameLabel.text = tempUnitStructArray[indexPath.row].fullName
+                cellLeft.unitValueLabel.text = (self.getAnswer ?? "0") + " " + tempUnitStructArray[indexPath.row].symbolName
+                cell = cellLeft
+            }else if tableView == rightTableView{
+                let cellRight = tableView.dequeueReusableCell(withIdentifier: "RightCell", for: indexPath) as! RightTableViewCell
+                cellRight.unitNameLabel.text = tempUnitStructArray[indexPath.row].fullName
+                cellRight.unitValueLabel.text = tempUnitStructArray[indexPath.row].outputValue + " " + tempUnitStructArray[indexPath.row].symbolName
+                cell = cellRight
+            }
+        case "right":
+            if tableView == leftTableView
+            {
+                let cellLeft = tableView.dequeueReusableCell(withIdentifier: "LeftCell", for: indexPath) as! LeftTableViewCell
+                cellLeft.unitNameLabel.text = tempUnitStructArray[indexPath.row].fullName
+                cellLeft.unitValueLabel.text = tempUnitStructArray[indexPath.row].outputValue + " " + tempUnitStructArray[indexPath.row].symbolName
+                cell = cellLeft
+            }else if tableView == rightTableView{
+                let cellRight = tableView.dequeueReusableCell(withIdentifier: "RightCell", for: indexPath) as! RightTableViewCell
+                cellRight.unitNameLabel.text = tempUnitStructArray[indexPath.row].fullName
+                cellRight.unitValueLabel.text = (self.getAnswer ?? "0") + " " + tempUnitStructArray[indexPath.row].symbolName
+                cell = cellRight
+            }
 
-            cell = cellLeft
-        }else if tableView == rightTableView{
-            let cellRight = tableView.dequeueReusableCell(withIdentifier: "RightCell", for: indexPath) as! RightTableViewCell
-            cellRight.unitNameLabel.text = tempObjectArray[indexPath.row].name
-            cellRight.unitValueLabel.text = self.getAnswer ?? "0"
-            cell = cellRight
+        default:
+            break
         }
-        return cell!
+                return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
-//        let cell = leftTableView.cellForRow(at: indexPath) as! TableViewCell
-//        
-//        cell.unitValueLabel.text = displayCalculation == nil || displayCalculation.isEmpty ? "0" : Calculator(infix: displayCalculationArray).getAnswer()
-//        self.selectedIndexPath = indexPath
-        
+        self.selectedTableViewIndex = indexPath
+        switch tableView {
+        case leftTableView:
+            selectUnitStructArray(selectedCategory: selectedCategory)
+            selectedTableIndicator = "left"
+
+        case rightTableView:
+            selectUnitStructArray(selectedCategory: selectedCategory)
+            selectedTableIndicator = "right"
+
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -332,6 +371,56 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         default: break
         }
         return ""
+    }
+    
+    func selectUnitStructArray(selectedCategory:String)
+    {
+        let unitRecord = UnitRecord(inputValue: self.getAnswer ?? "0", selectedIndex: self.selectedTableViewIndex.row)
+        switch selectedCategory {
+        case "distance":
+            self.tempUnitStructArray = unitRecord.distance()
+        case "area":
+            self.tempUnitStructArray = unitRecord.area()
+        case "volume":
+            self.tempUnitStructArray = unitRecord.volume()
+        case "mass":
+            self.tempUnitStructArray = unitRecord.mass()
+        case "angle":
+            self.tempUnitStructArray = unitRecord.angle()
+        case "acceleration":
+            self.tempUnitStructArray = unitRecord.acceleration()
+        case "concentration":
+            self.tempUnitStructArray = unitRecord.concentration()
+        case "dispersion":
+            self.tempUnitStructArray = unitRecord.dispersion()
+        case "duration":
+            self.tempUnitStructArray = unitRecord.duration()
+        case "charge":
+            self.tempUnitStructArray = unitRecord.charge()
+        case "current":
+            self.tempUnitStructArray = unitRecord.current()
+        case "voltage":
+            self.tempUnitStructArray = unitRecord.voltage()
+        case "resistance":
+            self.tempUnitStructArray = unitRecord.resistance()
+        case "energy":
+            self.tempUnitStructArray = unitRecord.energy()
+        case "frequency":
+            self.tempUnitStructArray = unitRecord.frequency()
+        case "power":
+            self.tempUnitStructArray = unitRecord.power()
+        case "pressure":
+            self.tempUnitStructArray = unitRecord.pressure()
+        case "speed":
+            self.tempUnitStructArray = unitRecord.speed()
+        case "temperature":
+            self.tempUnitStructArray = unitRecord.temperature()
+            
+        default:
+            break
+        }
+        leftTableView.reloadData()
+        rightTableView.reloadData()
     }
     
 }
